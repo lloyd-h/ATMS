@@ -15,10 +15,10 @@
 	
     <bean id="dispenser" class="atm.service.DefaultDispenser">
 	    <property name="containers">
-	      <util:list list-class="java.util.ArrayList">
-	        <ref bean="note50"/>
-	        <ref bean="note20"/>
-	      </util:list>
+	      <util:map map-class="java.util.HashMap">
+	        <entry key="50"><ref bean="note50"/></entry>
+	        <entry key="20"><ref bean="note20"/></entry>
+	      </util:map>
 	    </property>
 	</bean>
     

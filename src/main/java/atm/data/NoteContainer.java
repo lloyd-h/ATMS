@@ -9,7 +9,9 @@ package atm.data;
  */
 public abstract class NoteContainer {
 	
-	private int amount;
+	protected int amount;
+	protected int noteCount;
+	
 	/**
 	 * @param amount the amount to set
 	 */
@@ -24,8 +26,6 @@ public abstract class NoteContainer {
 		this.noteCount = noteCount;
 	}
 
-	private int noteCount;
-	
 	/**
 	 * @return the amount
 	 */
@@ -45,6 +45,6 @@ public abstract class NoteContainer {
 	 * @param count number of notes to dispense
 	 * @return
 	 */
-	public abstract int dispense(int count);
+	public abstract boolean dispense(int count);
 
 }

@@ -3,10 +3,11 @@
  */
 package atm.service;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.junit.After;
 import org.junit.Before;
@@ -30,17 +31,17 @@ public class DispenserTest {
 	public void setUp() throws Exception {
 		dispenser = new DefaultDispenser();
 		
-		List<NoteContainer> containers = new ArrayList<NoteContainer>();
+		Map<String, NoteContainer> containers = new HashMap<String, NoteContainer>();
 		
 		NoteContainer note50 = new NoteContainer50();
 		note50.setNoteCount(5);
 		note50.setAmount(250);
-		containers.add(note50);
+		containers.put("50", note50);
 		
 		NoteContainer note20 = new NoteContainer20();
-		note50.setNoteCount(5);
-		note50.setAmount(100);
-		containers.add(note20);
+		note20.setNoteCount(5);
+		note20.setAmount(100);
+		containers.put("20", note20);
 		
 		dispenser.setContainers(containers);
 	}
@@ -75,13 +76,13 @@ public class DispenserTest {
 		assertTrue("Withdraw $100 failed", result);
 		
 		result = dispenser.withdraw(120);
-		assertFalse("Withdraw $120 failed", result);
+		assertTrue("Withdraw $120 failed", result);
 		
 		result = dispenser.withdraw(55);
 		assertFalse("Withdraw $55 failed", result);
 		
 		result = dispenser.withdraw(70);
-		assertTrue("Withdraw $70 failed", result);
+		assertFalse("Withdraw $70 failed", result);
 		
 		result = dispenser.withdraw(20);
 		assertTrue("Withdraw $20 failed", result);
