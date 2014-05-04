@@ -26,8 +26,8 @@ public class DefaultDispenser implements Withdrawable {
 	/* (non-Javadoc)
 	 * @see atm.service.Withdrawable#withdraw(int)
 	 */
-	public int withdraw(int amount) {
-		return 0;
+	public boolean withdraw(int amount) {
+		return false;
 	}
 
 }

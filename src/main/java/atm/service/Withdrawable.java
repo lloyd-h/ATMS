@@ -14,5 +14,5 @@ public interface Withdrawable {
 	 * @param amount The amount to be withdrawn
 	 * @return
 	 */
-	public int withdraw(int amount);
+	public boolean withdraw(int amount);
 }

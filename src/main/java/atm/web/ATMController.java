@@ -29,6 +29,7 @@ public class ATMController {
 	@RequestMapping(value="/welcome", method = RequestMethod.GET)
 	public ModelAndView handleRequest() throws Exception {
 		
+		//TODO This should return the withdraw form view
 		String currentTime = (new Date()).toString();
 		logger.info("returning hello view with " + currentTime);
 		
@@ -38,13 +39,17 @@ public class ATMController {
 		return new ModelAndView("hello"); 
 	}
 	
-	/*@RequestMapping("/withdraw")
-    public ModelAndView withdrawHandler() {
+	/**
+	 * This handles the withdraw requests
+	 * @return
+	 */
+	@RequestMapping("/withdraw")
+    public ModelAndView withdrawHandler(int amount) {
 		
-		Map<String, Object> myModel = new HashMap<String, Object>();
-		myModel.put("now", "Seven");
+		//TODO call the withdraw method of the atmManager and show result
+		boolean result = atmManager.withdraw(amount);
         return new ModelAndView("result");
-    }*/
+    }
 	
 	
 
