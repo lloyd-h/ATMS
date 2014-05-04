@@ -4,28 +4,30 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.Controller;
 
 import atm.service.ATMManager;
 
-public class ATMController implements Controller {
+@Controller
+public class ATMController {
 	
-	private ATMManager atmManager;
+	private final ATMManager atmManager;
 	
 	protected final Log logger = LogFactory.getLog(getClass());
-
-	public void setAtmManager(ATMManager atmManager) {
+	
+	@Autowired
+	public ATMController(ATMManager atmManager){
 		this.atmManager = atmManager;
 	}
 
-	public ModelAndView handleRequest(HttpServletRequest arg0,
-			HttpServletResponse arg1) throws Exception {
+	@RequestMapping(value="/welcome", method = RequestMethod.GET)
+	public ModelAndView handleRequest() throws Exception {
 		
 		String currentTime = (new Date()).toString();
 		logger.info("returning hello view with " + currentTime);
@@ -33,8 +35,16 @@ public class ATMController implements Controller {
 		Map<String, Object> myModel = new HashMap<String, Object>();
 		myModel.put("now", currentTime);
 		
-		return new ModelAndView("hello", "myModel", myModel); 
+		return new ModelAndView("hello"); 
 	}
+	
+	/*@RequestMapping("/withdraw")
+    public ModelAndView withdrawHandler() {
+		
+		Map<String, Object> myModel = new HashMap<String, Object>();
+		myModel.put("now", "Seven");
+        return new ModelAndView("result");
+    }*/
 	
 	
 

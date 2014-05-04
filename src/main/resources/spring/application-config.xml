@@ -2,14 +2,42 @@
 
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
     
-    <!-- Uncomment and add your base-package here:
+    <!-- Uncomment and add your base-package here:  -->
          <context:component-scan
-            base-package="org.springframework.samples.service"/>  -->
+            base-package="atm.service"/>
 
-	<bean id="atmManager" class="atm.service.ATMManager">
+	<bean id="atmManager" class="atm.service.ATMManager"/>
+	
+    <bean id="dispenser" class="atm.service.DefaultDispenser">
+	    <property name="containers">
+	      <util:list list-class="java.util.ArrayList">
+	        <ref bean="note50"/>
+	        <ref bean="note20"/>
+	      </util:list>
+	    </property>
+	</bean>
+    
+    <bean id="note50" class="atm.data.NoteContainer50">
+    		 <property name="noteCount" value="100" />
+    		 <property name="amount" value="5000" />
     </bean>
+    
+    <bean id="note20" class="atm.data.NoteContainer20">
+    		 <property name="noteCount" value="100" />
+    		 <property name="amount" value="2000" />
+    </bean>
+    
+    <!-- <util:list id="containers" list-class="java.util.ArrayList">
+    	<ref bean="note50"/>
+    	<bean class="atm.data.NoteContainer20">
+    		 <property name="noteCount" value="100" />
+    		 <property name="amount" value="2000" /> 
+    	</bean>
+	</util:list>-->
 
 </beans>

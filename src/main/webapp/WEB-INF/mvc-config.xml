@@ -6,9 +6,9 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <!-- Uncomment and your base-package here:
+    <!-- Uncomment and your base-package here:-->
          <context:component-scan
-            base-package="org.springframework.samples.web"/>  -->
+            base-package="atm.web"/>
 
 
     <mvc:annotation-driven />
@@ -19,8 +19,8 @@
 	        <property name="suffix" value=".jsp"/>
 	</bean>
 	
-	<bean name="/hello.htm" class="atm.web.ATMController">
+	<!-- <bean name="/hello.htm" class="atm.web.ATMController">
 		<property name="atmManager" ref="atmManager"/>
-	</bean>
+	</bean>-->
 
 </beans>
