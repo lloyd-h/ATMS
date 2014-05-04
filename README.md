@@ -15,4 +15,6 @@ build using maven 3 : mvn clean install
 
 Then it can be deployed to any servelet container. If you use eclipse, you can use an embedded server to test this.
 
+Once deployed, the simulator can be accessed via http://localhost:8080/ATM-simulator
+
 I have created a JUnit test case called DispenserTest which can be used to test the core functionality of the simulator. Just run the test case in eclipse using Junit plugin. 
