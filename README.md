@@ -11,9 +11,9 @@ This application can be deployed to any servelet container. I used GlassFish 4.0
 
 In order to build,
 
-clone the repository : git clone https://github.com/lloyd-uws/ATMS.git
+clone the repository : `git clone https://github.com/lloyd-uws/ATMS.git`
 
-build using maven 3 : mvn clean install
+build using maven 3 : `mvn clean install`
 
 Then it can be deployed to any servelet container. If you use eclipse, you can use an embedded server to test this.
 
