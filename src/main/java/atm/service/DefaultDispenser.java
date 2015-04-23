@@ -5,10 +5,11 @@ package atm.service;
 
 import java.util.Map;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import atm.data.NoteContainer;
+
 
 /**
  * @author lloyd
@@ -19,7 +20,8 @@ public class DefaultDispenser implements Withdrawable {
 	
 	private Map<String, NoteContainer> containers;
 	
-	protected final Log logger = LogFactory.getLog(getClass());
+	//protected final Log logger = LogFactory.getLog(getClass());
+	protected static final Logger logger = LoggerFactory.getLogger(DefaultDispenser.class);
 	
 	/**
 	 * @param containers the containers to set

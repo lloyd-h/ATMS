@@ -21,6 +21,10 @@
 	      </util:map>
 	    </property>
 	</bean>
+	
+	<bean id="form" class="atm.data.WithdrawForm">
+    		 <property name="amount" value="0" />
+    </bean>
     
     <bean id="note50" class="atm.data.NoteContainer50">
     		 <property name="noteCount" value="100" />

@@ -10,7 +10,8 @@
 </head>
 <body>
  <h2>ATM Simulator</h2>
- <%-- <form:form method="GET" action="/withdraw">
+ <form:form method="POST" modelAttribute="withdrawForm">
+ <%--<form:form>--%>
    <table>
     <tr>
         <td><form:label path="amount">Amount</form:label></td>
@@ -22,6 +23,6 @@
         </td>
     </tr>
 </table>
-</form:form>--%>
+</form:form>
 </body>
 </html>

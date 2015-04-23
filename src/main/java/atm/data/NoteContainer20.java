@@ -3,8 +3,8 @@
  */
 package atm.data;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author lloyd
@@ -12,7 +12,8 @@ import org.apache.commons.logging.LogFactory;
  */
 public class NoteContainer20 extends NoteContainer {
 
-	protected final Log logger = LogFactory.getLog(getClass());
+	//protected final Log logger = LogFactory.getLog(getClass());
+	protected static final Logger logger = LoggerFactory.getLogger(NoteContainer20.class);
 	
 	/* (non-Javadoc)
 	 * @see atm.data.NoteContainer#dispense(int)
