@@ -82,8 +82,9 @@ public class DefaultDispenser implements Withdrawable {
 			}
 		}
 		else{
-			//can't dispense
+			//can't dispense. This is a test comment
 			return false;
+//			Another comment
 		}
 		
 	}
